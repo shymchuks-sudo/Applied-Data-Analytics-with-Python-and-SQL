@@ -1,0 +1,46 @@
+import numpy as np
+import random
+movie_matrix = []
+for user in range(100):
+    movies_rated_by_me = np.full(1000, -1)
+    num_mov_rated = random.randint(0, 999)
+    movies_i_will_rate = random.sample(range(0,1000), num_mov_rated)
+    for i in movies_i_will_rate:
+        movies_rated_by_me[i] = random.randint(0,10)
+    movie_matrix.append(movies_rated_by_me)
+
+expert_matrix = []
+for user in range(10):
+    movies_rated_by_me = np.full(1000, -1)
+    num_mov_rated = random.randint(0, 999)
+    movies_i_will_rate = random.sample(range(0,1000), num_mov_rated)
+    for i in movies_i_will_rate:
+        movies_rated_by_me[i] = random.randint(0,10)
+    expert_matrix.append(movies_rated_by_me)
+expert_matrix = np.array(expert_matrix)
+
+movie_matrix = np.vstack([movie_matrix, expert_matrix])
+#stacks tha arrays vertically
+
+new_movie_matrix = []
+for user in range(110):
+    movies_rated_by_me = np.full(50, -1)
+    num_mov_rated = random.randint(0, 49)
+    movies_i_will_rate = random.sample(range(0,50), num_mov_rated)
+    for i in movies_i_will_rate:
+        movies_rated_by_me[i] = random.randint(0,10)
+    new_movie_matrix.append(movies_rated_by_me)
+new_movie_matrix = np.array(new_movie_matrix)
+
+movie_matrix = np.hstack([movie_matrix, new_movie_matrix])
+print(movie_matrix)
+# [[-1 -1 -1 ...  6  7  5]
+#  [ 8 -1 -1 ... -1  6 -1]
+#  [-1 -1 -1 ... -1 -1  4]
+#  ...
+#  [-1  8  2 ... 10  1 -1]
+#  [-1 -1 -1 ...  9 -1 -1]
+#  [ 9  5  8 ...  9  6  6]]
+
+print(movie_matrix.shape)
+# (110, 1050)
