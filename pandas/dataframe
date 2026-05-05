@@ -1,0 +1,44 @@
+import pandas as pd
+data = {'name': ['john', 'jane', 'doe'],\
+        'age': [25, 28, 22],\
+            'occupation': ['engenieer', 'doctor', 'artist']}
+
+df = pd.DataFrame(data)
+print(df)
+#    name  age occupation
+# 0  john   25  engenieer
+# 1  jane   28     doctor
+# 2   doe   22     artist
+print(df.head())
+# first 5 rows
+print(df.tail())
+# last 5 rows
+print(df.shape)
+# (3, 3)
+print(df.columns)
+# Index(['name', 'age', 'occupation'], dtype='str')
+print(df.isnull())
+#     name    age  occupation
+# 0  False  False       False
+# 1  False  False       False
+# 2  False  False       False
+print(df.describe())
+#         age
+# count   3.0
+# mean   25.0
+# std     3.0
+# min    22.0
+# 25%    23.5
+# 50%    25.0
+# 75%    26.5
+# max    28.0
+print(df.any()) # returns true if any value if true
+# name          True
+# age           True
+# occupation    True
+# dtype: bool
+print(df.all()) #returnes true if all values are true
+# name          True
+# age           True
+# occupation    True
+# dtype: bool
