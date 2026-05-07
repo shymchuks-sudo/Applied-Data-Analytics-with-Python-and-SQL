@@ -1,0 +1,16 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+categories = ['A', 'B', 'C', 'D']
+values = [10, 20, 15, 25]
+
+positions = np.arange(len(categories))
+
+plt.stem(positions, values)
+
+plt.xticks(positions, categories)
+plt.xlabel('Categories')
+plt.ylabel('Values')
+plt.title('Simple Plot')
+
+plt.show()
