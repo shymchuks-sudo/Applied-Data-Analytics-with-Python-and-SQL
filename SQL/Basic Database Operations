@@ -1,0 +1,39 @@
+# Creating a Table
+cursor = conn.cursor()
+cursor.execute('''
+CREATE TABLE Employees (
+    EmpID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Department VARCHAR(50)
+)
+''')
+conn.commit()
+
+# Inserting Data
+cursor.execute('''
+INSERT INTO Employees (EmpID, FirstName, LastName, Department)
+VALUES (1, 'Some', 'Name', 'DA')
+''')
+conn.commit()
+
+# Selecting Data
+cursor.execute('SELECT * FROM Employees')
+rows = cursor.fetchall()
+for row in rows:
+    print(row)
+
+# updating
+cursor.execute('''
+UPDATE Employees
+SET Department = 'Finance'
+WHERE EmpID = 1
+''')
+conn.commit()
+
+# Deleting Records
+cursor.execute('''
+DELETE FROM Employees
+WHERE EmpID = 1
+''')
+conn.commit()
