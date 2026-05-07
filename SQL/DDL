@@ -1,0 +1,28 @@
+-- DDL commands are used to define and modify the database
+-- schema. These commands deal with the structure of
+-- database objects like tables, indexes, and views.
+
+-- CREATE: Creates new objects in the database
+-- like tables, indexes, etc.
+CREATE TABLE Employees (
+    EmpID INT PRIMARY KEY,
+    FirstName VARCHAR(100),
+    LastName VARCHAR(100),
+    Department VARCHAR(100)
+);
+
+-- ALTER: Modifies existing database objects.
+ALTER TABLE Employees
+ADD BirthDate DATE;
+
+-- DROP: Deletes database objects.
+DROP TABLE Employees;
+
+-- TRUNCATE: Removes all rows from a table but keeps the table structure intact.
+TRUNCATE TABLE Employees;
+
+-- RENAME: Changes the name of a database object
+RENAME TABLE Employees TO Staff;
+
+-- COMMENT: To add comments to the data dictionary for objects.
+COMMENT ON TABLE Employees IS 'Contains employee data'

@@ -1,0 +1,7 @@
+-- DCL commands are used to control access to the data stored in the database.
+
+-- GRANT: Provides privileges to users.
+GRANT SELECT, INSERT ON Employees TO User1;
+
+-- REVOKE: Removes privileges from users.
+REVOKE SELECT, INSERT ON Employees FROM User1;

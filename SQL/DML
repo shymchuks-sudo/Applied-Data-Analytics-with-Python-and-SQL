@@ -1,0 +1,26 @@
+-- DML commands are used to manipulate data stored
+-- in database tables. They allow you to insert, update,
+-- delete, and query data.
+
+-- INSERT: Adds new rows of data to a table.
+INSERT INTO Employees (EmpID, FirstName, LastName, Department)
+VALUES (101, 'John', 'Doe', 'HR');
+
+-- UPDATE: Modifies existing data in a table.
+UPDATE Employees
+SET Department = 'Finance'
+WHERE EmpID = 101;
+
+-- DELETE: Removes rows from a table.
+DELETE FROM Employees
+WHERE EmpID = 101;
+
+-- MERGE: Merges data from two tables based on a condition.
+MERGE INTO Employees e
+USING NewEmployees ne
+ON (e.EmpID = ne.EmpID)
+WHEN MATCHED THEN
+    UPDATE SET e.Name = ne.Name
+WHEN NOT MATCHED THEN
+    INSERT (EmpID, Name)
+    VALUES (ne.EmpID, ne.Name);

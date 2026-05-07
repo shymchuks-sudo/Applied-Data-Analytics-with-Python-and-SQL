@@ -1,0 +1,9 @@
+TCL commands deal with the transaction management in SQL Server. They are used to ensure that SQL commands are executed within transactions.
+
+COMMIT: Saves the changes made during the transaction.
+
+ROLLBACK: Reverts the changes made during the transaction.
+
+SAVEPOINT: Sets a point within a transaction to which you can roll back.
+
+SET TRANSACTION: Sets characteristics for the transaction, like isolation levels.
